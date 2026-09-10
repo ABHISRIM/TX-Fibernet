@@ -1,0 +1,12 @@
+{
+  "name": "tx-fibernet-workspace",
+  "version": "1.0.0",
+  "description": "TX Fibernet Full-Stack Application Workspace",
+  "scripts": {
+    "start": "node scripts/start.js",
+    "dev": "node scripts/start.js",
+    "backend": "cd tx-fibernet/backend && node server.js",
+    "frontend": "cd tx-fibernet/frontend && npx vite --port 5173",
+    "seed": "cd tx-fibernet/backend && npm run seed"
+  }
+}
