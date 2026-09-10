@@ -8,41 +8,58 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+// 1. Dynamic CORS Configuration for Production & Local Development
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  process.env.FRONTEND_URL // Will hold your Vercel URL on Render
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like Postman or server-to-server calls)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
+
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Database Connection with In-Memory Fallback
+// 2. Production-Ready Database Connection
 const connectDB = async () => {
-  const mongoURI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/tx_fibernet';
+  const mongoURI = process.env.MONGO_URI;
   const seedFunc = require('./seedRunner');
+
+  if (!mongoURI) {
+    console.error('FATAL ERROR: MONGO_URI is not defined in environment variables.');
+    process.exit(1);
+  }
+
   try {
-    console.log('Connecting to MongoDB at:', mongoURI);
+    console.log('Connecting to MongoDB Atlas...');
     await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 3000
+      serverSelectionTimeoutMS: 5000 // Waits 5s for Atlas before timing out
     });
-    console.log('MongoDB connected successfully!');
-    await seedFunc();
-  } catch (error) {
-    console.log('Local MongoDB connection failed/unavailable. Launching MongoDB Memory Server fallback...');
-    try {
-      const { MongoMemoryServer } = require('mongodb-memory-server');
-      const mongod = await MongoMemoryServer.create();
-      const uri = mongod.getUri();
-      await mongoose.connect(uri);
-      console.log('MongoDB Memory Server running and connected at:', uri);
-      
+    console.log('MongoDB Atlas connected successfully!');
+    
+    // Run seed runner if available
+    if (typeof seedFunc === 'function') {
       await seedFunc();
-    } catch (memError) {
-      console.error('Failed to initialize MongoDB Memory Server:', memError);
     }
+  } catch (error) {
+    console.error('MongoDB Atlas Connection Error:', error.message);
+    // Exit process with failure so Render flags the deployment error cleanly
+    process.exit(1);
   }
 };
 
+// Initialize DB Connection
 connectDB();
 
 // API Routes
@@ -55,7 +72,7 @@ app.use('/api/contact', require('./routes/contact'));
 app.use('/api/corporate', require('./routes/corporate'));
 app.use('/api/connection', require('./routes/connection'));
 
-// Health check endpoint
+// Health check endpoint (Render uses this to check if your server is alive)
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', app: 'TX Fibernet API', timestamp: new Date() });
 });
