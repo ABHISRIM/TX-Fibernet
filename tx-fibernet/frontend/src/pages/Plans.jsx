@@ -1,35 +1,58 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Wifi, Check, PhoneCall } from 'lucide-react';
+import { MapPin, PhoneCall } from 'lucide-react';
 import api from '../services/api';
 import PlanCard from '../components/PlanCard';
 
 const Plans = ({ onSelectPlan }) => {
-  const [selectedLocation, setSelectedLocation] = useState('Tiruppur');
+  const [selectedLocation, setSelectedLocation] = useState('All');
   const [selectedSpeedFilter, setSelectedSpeedFilter] = useState('All');
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const locations = ['Tiruppur', 'Erode', 'Palladam', 'Sulur', 'Palani', 'Kodaikanal'];
+  const locations = ['All', 'Tiruppur', 'Erode', 'Palladam', 'Sulur', 'Palani', 'Kodaikanal'];
   const speedFilters = ['All', 'Under 100 Mbps', '100 Mbps - 200 Mbps', '300 Mbps+'];
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchPlans = async () => {
       setLoading(true);
+      setError('');
+
       try {
-        const res = await api.get(`/plans?location=${selectedLocation}`);
-        setPlans(res.data);
+        const params = selectedLocation === 'All' ? {} : { location: selectedLocation };
+        const res = await api.get('/plans', { params });
+        const allPlans = Array.isArray(res?.data) ? res.data : [];
+
+        if (isMounted) {
+          setPlans(allPlans.filter((plan) => plan && plan.active !== false));
+        }
       } catch (err) {
         console.error('Failed to load plans', err);
+
+        if (isMounted) {
+          setPlans([]);
+          setError('Unable to load plans right now. Please try again later.');
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
+
     fetchPlans();
+
+    return () => {
+      isMounted = false;
+    };
   }, [selectedLocation]);
 
   const filteredPlans = plans.filter((plan) => {
-    const speedNum = parseInt(plan.speed, 10) || 0;
+    const speedNum = Number.parseInt(plan?.speed ?? '0', 10) || 0;
+
     if (selectedSpeedFilter === 'Under 100 Mbps') return speedNum < 100;
     if (selectedSpeedFilter === '100 Mbps - 200 Mbps') return speedNum >= 100 && speedNum <= 200;
     if (selectedSpeedFilter === '300 Mbps+') return speedNum >= 300;
@@ -38,7 +61,6 @@ const Plans = ({ onSelectPlan }) => {
 
   return (
     <div>
-      {/* Header Banner */}
       <section style={{ background: 'var(--bg-secondary)', padding: '50px 0', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Choose the Speed That Fits Your Needs</h1>
@@ -48,10 +70,8 @@ const Plans = ({ onSelectPlan }) => {
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="section">
         <div className="container">
-          {/* Location Selector */}
           <div className="location-selector-wrapper">
             <span className="location-label">
               <MapPin size={18} color="#0284c7" /> Location:
@@ -67,7 +87,6 @@ const Plans = ({ onSelectPlan }) => {
             ))}
           </div>
 
-          {/* Speed Category Filters */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '32px', flexWrap: 'wrap' }}>
             {speedFilters.map((sf) => (
               <button
@@ -87,10 +106,13 @@ const Plans = ({ onSelectPlan }) => {
             ))}
           </div>
 
-          {/* Plans Grid */}
           {loading ? (
             <div style={{ padding: '50px', textAlign: 'center', color: 'var(--text-muted)' }}>
               Loading broadband plans...
+            </div>
+          ) : error ? (
+            <div style={{ padding: '50px', textAlign: 'center', color: '#991b1b', background: '#fee2e2', borderRadius: '12px' }}>
+              {error}
             </div>
           ) : filteredPlans.length === 0 ? (
             <div style={{ padding: '50px', textAlign: 'center', color: 'var(--text-muted)' }}>
@@ -109,7 +131,6 @@ const Plans = ({ onSelectPlan }) => {
             </div>
           )}
 
-          {/* Plan Comparison Table Section */}
           <div style={{ marginTop: '70px' }}>
             <h2 className="section-title">Plan Speed Comparison Guide</h2>
             <p className="section-subtitle">
@@ -170,7 +191,6 @@ const Plans = ({ onSelectPlan }) => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section section-gray">
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '12px' }}>Need a Custom Plan for Your Enterprise?</h2>
