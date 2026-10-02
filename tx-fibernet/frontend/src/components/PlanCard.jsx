@@ -41,3 +41,4 @@ const PlanCard = ({ plan, isFeatured, onSelectPlan }) => {
 };
 
 export default PlanCard;
+

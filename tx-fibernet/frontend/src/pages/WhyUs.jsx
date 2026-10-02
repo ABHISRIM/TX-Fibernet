@@ -41,7 +41,7 @@ const WhyUs = () => {
       {/* Header Banner */}
       <section style={{ background: 'var(--bg-secondary)', padding: '50px 0', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container" style={{ textAlign: 'center' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Why Choose TX Fibernet?</h1>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Why Choose TXFibernet?</h1>
           <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem' }}>
             We combine ultra-fast optical fiber infrastructure with local customer care for an unmatched internet experience.
           </p>
@@ -94,7 +94,7 @@ const WhyUs = () => {
               Experience Next-Level Fiber Broadband
             </h3>
             <p style={{ color: 'var(--text-dark)', maxWidth: '600px', margin: '0 auto 20px auto' }}>
-              Explore our range of flexible plans or get in touch with our team to find out how TX Fibernet can empower your home or business.
+              Explore our range of flexible plans or get in touch with our team to find out how TXFibernet can empower your home or business.
             </p>
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center' }}>
               <Link to="/plans" className="btn btn-primary">
@@ -112,3 +112,4 @@ const WhyUs = () => {
 };
 
 export default WhyUs;
+

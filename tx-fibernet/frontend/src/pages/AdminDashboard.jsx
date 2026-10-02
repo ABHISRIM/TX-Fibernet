@@ -174,7 +174,7 @@ const AdminDashboard = () => {
       <div className="container">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
           <div>
-            <h1 className="section-title" style={{ textAlign: 'left', marginBottom: '4px' }}>TX Fibernet Admin Panel</h1>
+            <h1 className="section-title" style={{ textAlign: 'left', marginBottom: '4px' }}>TXFibernet Admin Panel</h1>
             <p style={{ color: 'var(--text-muted)' }}>Manage subscribers, broadband plans, support tickets, and service requests.</p>
           </div>
           <button className="btn btn-outline" onClick={loadAllData}>
@@ -602,3 +602,4 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+

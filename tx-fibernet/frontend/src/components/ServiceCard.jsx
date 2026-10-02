@@ -18,3 +18,4 @@ const ServiceCard = ({ icon: Icon, title, description, linkTo = '/services' }) =
 };
 
 export default ServiceCard;
+

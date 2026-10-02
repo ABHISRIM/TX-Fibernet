@@ -195,3 +195,4 @@ const Dashboard = ({ onOpenConnectionModal }) => {
 };
 
 export default Dashboard;
+

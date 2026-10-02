@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 TX Fibernet. All Rights Reserved.</p>
+          <p>© 2026 TXFibernet. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
@@ -78,3 +78,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

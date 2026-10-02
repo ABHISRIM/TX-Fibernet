@@ -55,7 +55,7 @@ const Contact = () => {
         <div className="container" style={{ textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Let's Connect</h1>
           <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem' }}>
-            Have questions about TX Fibernet services, coverage, or plans? Reach out to our local support and sales team.
+            Have questions about TXFibernet services, coverage, or plans? Reach out to our local support and sales team.
           </p>
         </div>
       </section>
@@ -126,3 +126,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
