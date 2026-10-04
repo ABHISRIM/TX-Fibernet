@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
 
           <div className="hero-image-wrapper">
-            <img src="/hero.png" alt="TXFibernet High Speed Router" />
+            <img src="/hero.png" alt="TXFIBERNET High Speed Router" />
           </div>
         </div>
       </div>

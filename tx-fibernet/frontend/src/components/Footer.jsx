@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="footer-brand">
             <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <Wifi size={22} color="#0284c7" />
-              <span>TX</span> FIBERNET
+              TXFIBERNET
             </h3>
             <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.6', marginBottom: '16px' }}>
               Reliable Fiber Internet for a Connected Life. Delivering lightning-fast optical broadband for homes, businesses, and enterprises across Tamil Nadu.
@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 TXFibernet. All Rights Reserved.</p>
+          <p>© 2026 TXFIBERNET. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
@@ -78,4 +78,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
