@@ -13,7 +13,7 @@ const Navbar = () => {
         {/* Brand Logo */}
         <Link to="/" className="brand-logo" onClick={closeMobile}>
           <Wifi size={24} color="#0284c7" />
-          TXFIBERNET
+          TXFibernet
         </Link>
 
         {/* Desktop Nav Links */}

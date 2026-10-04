@@ -15,16 +15,16 @@ const FaqPage = () => {
       a: "Fiber internet uses optical fiber cables made of glass strands to transmit data using light pulses. This delivers significantly higher speeds, symmetric upload/download bandwidth, and lower latency compared to traditional copper or cable connections."
     },
     {
-      q: "What speeds does TXFIBERNET provide?",
-      a: "TXFIBERNET offers a wide range of plans with speeds from 30 Mbps up to 500 Mbps. All plans deliver equal download and upload speeds."
+      q: "What speeds does TXFibernet provide?",
+      a: "TXFibernet offers a wide range of plans with speeds from 30 Mbps up to 500 Mbps. All plans deliver equal download and upload speeds."
     },
     {
       q: "Do you offer unlimited data?",
-      a: "Yes! All home and commercial TXFIBERNET plans come with truly unlimited data with zero daily limits or hidden throttling."
+      a: "Yes! All home and commercial TXFibernet plans come with truly unlimited data with zero daily limits or hidden throttling."
     },
     {
       q: "Which areas are covered?",
-      a: "TXFIBERNET currently serves Tiruppur, Erode, Palladam, Sulur, Palani, and Kodaikanal across Tamil Nadu, with network expansion continuously ongoing."
+      a: "TXFibernet currently serves Tiruppur, Erode, Palladam, Sulur, Palani, and Kodaikanal across Tamil Nadu, with network expansion continuously ongoing."
     },
     {
       q: "Which plan is suitable for my home?",
@@ -35,7 +35,7 @@ const FaqPage = () => {
       a: "Yes! We offer dedicated leased lines, static IP addresses, custom bandwidth solutions, and SLAs for offices, retail stores, and enterprise businesses."
     },
     {
-      q: "How can I contact TXFIBERNET?",
+      q: "How can I contact TXFibernet?",
       a: "You can reach our team via phone at +91 98765 43210, email support@txfibernet.com, or submit an inquiry directly through our Contact Us page."
     }
   ];
@@ -50,7 +50,7 @@ const FaqPage = () => {
           </div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Frequently Asked Questions</h1>
           <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem' }}>
-            Find answers to common questions about TXFIBERNET services, speeds, coverage, and broadband technology.
+            Find answers to common questions about TXFibernet services, speeds, coverage, and broadband technology.
           </p>
         </div>
       </section>
@@ -77,7 +77,7 @@ const FaqPage = () => {
           <div style={{ textAlign: 'center', marginTop: '50px', background: 'var(--bg-secondary)', padding: '30px', borderRadius: 'var(--radius-sm)' }}>
             <h3 style={{ fontSize: '1.3rem', marginBottom: '8px' }}>Have more questions?</h3>
             <p style={{ color: 'var(--text-muted)', marginBottom: '20px' }}>
-              Our support specialists are happy to answer any questions you have about TXFIBERNET.
+              Our support specialists are happy to answer any questions you have about TXFibernet.
             </p>
             <Link to="/contact" className="btn btn-primary">
               Contact Sales & Support <ArrowRight size={16} />
@@ -90,4 +90,3 @@ const FaqPage = () => {
 };
 
 export default FaqPage;
-

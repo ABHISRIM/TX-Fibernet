@@ -43,7 +43,7 @@ const Coverage = ({ onSelectPlan }) => {
           </div>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Where We Provide Service</h1>
           <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem' }}>
-            TXFIBERNET delivers high-speed optical fiber connectivity across major cities and growing towns in Tamil Nadu.
+            TXFibernet delivers high-speed optical fiber connectivity across major cities and growing towns in Tamil Nadu.
           </p>
         </div>
       </section>
@@ -113,7 +113,7 @@ const Coverage = ({ onSelectPlan }) => {
                 <CheckCircle2 size={18} /> Coverage Active
               </div>
               <h3 style={{ fontSize: '1.8rem', color: '#ffffff', marginBottom: '6px' }}>
-                TXFIBERNET services are available in {selectedLocation}.
+                TXFibernet services are available in {selectedLocation}.
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>
                 Enjoy symmetrical fiber speeds, 99.9% uptime, and 24/7 dedicated support in {selectedLocation}.
@@ -152,7 +152,7 @@ const Coverage = ({ onSelectPlan }) => {
         <div className="container" style={{ textAlign: 'center' }}>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '12px' }}>Is your area not listed?</h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '20px' }}>
-            We are rapidly expanding our optical fiber network across Tamil Nadu. Contact us to inquire about bringing TXFIBERNET to your locality.
+            We are rapidly expanding our optical fiber network across Tamil Nadu. Contact us to inquire about bringing TXFibernet to your locality.
           </p>
           <Link to="/contact" className="btn btn-primary">
             Inquire About Network Expansion <ArrowRight size={16} />
@@ -164,4 +164,3 @@ const Coverage = ({ onSelectPlan }) => {
 };
 
 export default Coverage;
-

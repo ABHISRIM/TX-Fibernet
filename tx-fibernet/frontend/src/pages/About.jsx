@@ -10,7 +10,7 @@ const About = () => {
         <div className="container" style={{ textAlign: 'center' }}>
           <h1 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Connecting People with Reliable Fiber Internet</h1>
           <p style={{ color: 'var(--text-muted)', maxWidth: '650px', margin: '0 auto', fontSize: '1.05rem' }}>
-            TXFIBERNET is a leading regional Internet Service Provider dedicated to delivering high-speed optical broadband for homes, businesses, and communities.
+            TXFibernet is a leading regional Internet Service Provider dedicated to delivering high-speed optical broadband for homes, businesses, and communities.
           </p>
         </div>
       </section>
@@ -19,9 +19,9 @@ const About = () => {
       <section className="section">
         <div className="container">
           <div style={{ maxWidth: '850px', margin: '0 auto', lineHeight: '1.8', color: 'var(--text-dark)' }}>
-            <h2 style={{ fontSize: '1.8rem', marginBottom: '16px', color: 'var(--dark-heading)' }}>About TXFIBERNET</h2>
+            <h2 style={{ fontSize: '1.8rem', marginBottom: '16px', color: 'var(--dark-heading)' }}>About TXFibernet</h2>
             <p style={{ fontSize: '1.05rem', marginBottom: '20px' }}>
-              Founded with the goal of bridging the digital divide across Tamil Nadu, TXFIBERNET provides cutting-edge Fiber-to-the-Home (FTTH) and commercial leased-line internet solutions. We empower households with uninterrupted streaming and gaming, while helping enterprises accelerate digital transformation.
+              Founded with the goal of bridging the digital divide across Tamil Nadu, TXFibernet provides cutting-edge Fiber-to-the-Home (FTTH) and commercial leased-line internet solutions. We empower households with uninterrupted streaming and gaming, while helping enterprises accelerate digital transformation.
             </p>
             <p style={{ fontSize: '1.05rem', marginBottom: '30px' }}>
               We believe high-speed internet is an essential utility for modern living, education, and business growth. By deploying 100% optical fiber technology directly to our subscribers' premises, we deliver symmetric speeds, ultra-low latency, and reliable connectivity year-round.
@@ -56,7 +56,7 @@ const About = () => {
 
             <h3 style={{ fontSize: '1.5rem', marginBottom: '14px', color: 'var(--dark-heading)' }}>Why We Exist</h3>
             <p style={{ fontSize: '1rem', marginBottom: '30px' }}>
-              Traditional copper broadband and legacy wireless providers often fail to meet modern demands for high bandwidth, remote work, and 4K streaming. TXFIBERNET exists to deliver pure fiber connectivity that gives communities consistent performance without daily data caps or throttling.
+              Traditional copper broadband and legacy wireless providers often fail to meet modern demands for high bandwidth, remote work, and 4K streaming. TXFibernet exists to deliver pure fiber connectivity that gives communities consistent performance without daily data caps or throttling.
             </p>
 
             <div style={{ textAlign: 'center', marginTop: '40px' }}>
@@ -72,4 +72,3 @@ const About = () => {
 };
 
 export default About;
-

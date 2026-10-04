@@ -32,7 +32,6 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 
 img, svg, video {
@@ -52,9 +51,25 @@ button {
 }
 
 .container {
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 20px;
+}
+
+#root,
+.app-container,
+.main-content {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+  }
 }
 
 /* Headings */
@@ -213,4 +228,3 @@ h1, h2, h3, h4, h5, h6 {
   color: #075985;
   border: 1px solid #bae6fd;
 }
-
