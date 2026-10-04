@@ -53,7 +53,7 @@ const Login = () => {
           <div style={{ textAlign: 'center', marginBottom: '24px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '1.5rem', fontWeight: 800, color: 'var(--dark-heading)' }}>
               <Wifi size={28} color="#0284c7" />
-              TXFIBERNET
+              TXFibernet
             </div>
             <h2 style={{ fontSize: '1.4rem', marginTop: '12px' }}>Customer Login</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Access your account dashboard and active subscriptions.</p>

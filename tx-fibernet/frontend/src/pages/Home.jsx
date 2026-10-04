@@ -54,16 +54,16 @@ const Home = ({ onSelectPlan }) => {
       a: "Fiber internet uses optical fiber cables made of glass strands to transmit data using light pulses. This delivers significantly higher speeds, symmetric upload/download bandwidth, and lower latency."
     },
     {
-      q: "What speeds does TXFIBERNET provide?",
-      a: "TXFIBERNET offers a wide range of plans with speeds from 30 Mbps up to 500 Mbps."
+      q: "What speeds does TXFibernet provide?",
+      a: "TXFibernet offers a wide range of plans with speeds from 30 Mbps up to 500 Mbps."
     },
     {
       q: "Do you offer unlimited data?",
-      a: "Yes! All home and commercial TXFIBERNET plans come with truly unlimited data with zero daily limits or hidden throttling."
+      a: "Yes! All home and commercial TXFibernet plans come with truly unlimited data with zero daily limits or hidden throttling."
     },
     {
       q: "Which areas are covered?",
-      a: "TXFIBERNET currently serves Tiruppur, Erode, Palladam, Sulur, Palani, and Kodaikanal across Tamil Nadu."
+      a: "TXFibernet currently serves Tiruppur, Erode, Palladam, Sulur, Palani, and Kodaikanal across Tamil Nadu."
     },
     {
       q: "Which plan is suitable for my home?",
@@ -74,7 +74,7 @@ const Home = ({ onSelectPlan }) => {
       a: "Yes! We offer dedicated leased lines, static IP addresses, custom bandwidth solutions, and SLAs for offices and businesses."
     },
     {
-      q: "How can I contact TXFIBERNET?",
+      q: "How can I contact TXFibernet?",
       a: "You can reach our team via phone at +91 98765 43210, email support@txfibernet.com, or submit an inquiry directly through our Contact page."
     }
   ];
@@ -131,13 +131,13 @@ const Home = ({ onSelectPlan }) => {
         </div>
       </section>
 
-      {/* 3. About TXFIBERNET */}
+      {/* 3. About TXFibernet */}
       <section className="section section-gray">
         <div className="container">
           <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
             <h2 className="section-title">Connecting People with Reliable Fiber Internet</h2>
             <p className="section-subtitle">
-              TXFIBERNET provides reliable and affordable fiber broadband services designed for homes, businesses and growing communities across Tamil Nadu.
+              TXFibernet provides reliable and affordable fiber broadband services designed for homes, businesses and growing communities across Tamil Nadu.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '30px' }}>
@@ -278,7 +278,7 @@ const Home = ({ onSelectPlan }) => {
             </div>
             
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '20px' }}>
-              TXFIBERNET services are active in all listed areas with symmetrical high-speed connectivity.
+              TXFibernet services are active in all listed areas with symmetrical high-speed connectivity.
             </p>
 
             <Link to="/coverage" className="btn btn-outline">
@@ -288,10 +288,10 @@ const Home = ({ onSelectPlan }) => {
         </div>
       </section>
 
-      {/* 7. Why Choose TXFIBERNET */}
+      {/* 7. Why Choose TXFibernet */}
       <section className="section section-gray">
         <div className="container">
-          <h2 className="section-title">Why Choose TXFIBERNET?</h2>
+          <h2 className="section-title">Why Choose TXFibernet?</h2>
           <p className="section-subtitle">
             We deliver optical fiber performance backed by customer-focused service.
           </p>
@@ -369,7 +369,7 @@ const Home = ({ onSelectPlan }) => {
                 Internet + Entertainment
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '1rem', marginBottom: '24px' }}>
-                Selected TXFIBERNET plans come bundled with complimentary access to top streaming apps, live TV channels, and movies.
+                Selected TXFibernet plans come bundled with complimentary access to top streaming apps, live TV channels, and movies.
               </p>
               <Link to="/plans" className="btn btn-primary">
                 Explore Plans <ArrowRight size={16} />
@@ -394,7 +394,7 @@ const Home = ({ onSelectPlan }) => {
         <div className="container">
           <h2 className="section-title">How It Works</h2>
           <p className="section-subtitle">
-            Getting connected with TXFIBERNET is simple and straightforward.
+            Getting connected with TXFibernet is simple and straightforward.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
@@ -410,7 +410,7 @@ const Home = ({ onSelectPlan }) => {
               <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--primary-light)', marginBottom: '12px' }}>02</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '8px', color: 'var(--dark-heading)' }}>Check Coverage</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                See whether TXFIBERNET services are active in your city or residential locality.
+                See whether TXFibernet services are active in your city or residential locality.
               </p>
             </div>
 
@@ -418,7 +418,7 @@ const Home = ({ onSelectPlan }) => {
               <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--primary-light)', marginBottom: '12px' }}>03</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '8px', color: 'var(--dark-heading)' }}>Contact Us</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                Contact TXFIBERNET for more information or connection assistance in your area.
+                Contact TXFibernet for more information or connection assistance in your area.
               </p>
             </div>
           </div>
@@ -473,4 +473,3 @@ const Home = ({ onSelectPlan }) => {
 };
 
 export default Home;
-

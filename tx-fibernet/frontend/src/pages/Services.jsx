@@ -77,7 +77,7 @@ const Services = () => {
             {servicesList.map((srv) => {
               const IconComp = srv.icon;
               return (
-                <div key={srv.id} style={{
+                <div key={srv.id} className="service-detail-card" style={{
                   background: '#ffffff',
                   border: '1px solid var(--border-color)',
                   borderRadius: 'var(--radius-md)',
@@ -107,7 +107,7 @@ const Services = () => {
 
                     <div style={{ marginBottom: '20px' }}>
                       <h4 style={{ fontSize: '0.95rem', marginBottom: '10px', color: 'var(--dark-heading)' }}>Service Benefits:</h4>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                      <div className="service-benefits-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                         {srv.benefits.map((b, idx) => (
                           <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'var(--text-dark)' }}>
                             <CheckCircle size={16} color="#10b981" style={{ flexShrink: 0 }} />
@@ -117,7 +117,7 @@ const Services = () => {
                       </div>
                     </div>
 
-                    <div style={{ display: 'flex', gap: '12px' }}>
+                    <div className="service-detail-actions" style={{ display: 'flex', gap: '12px' }}>
                       <Link to="/plans" className="btn btn-primary">
                         Explore Plans <ArrowRight size={16} />
                       </Link>
@@ -137,4 +137,3 @@ const Services = () => {
 };
 
 export default Services;
-
