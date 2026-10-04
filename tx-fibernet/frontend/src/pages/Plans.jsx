@@ -22,12 +22,13 @@ const Plans = ({ onSelectPlan }) => {
       setError('');
 
       try {
-        const params = selectedLocation === 'All' ? {} : { location: selectedLocation };
-        const res = await api.get('/plans', { params });
-        const allPlans = Array.isArray(res?.data) ? res.data : [];
+        const res = await api.get('/plans');
+        if (!Array.isArray(res?.data)) {
+          throw new Error('The plans service returned an unexpected response.');
+        }
 
         if (isMounted) {
-          setPlans(allPlans.filter((plan) => plan && plan.active !== false));
+          setPlans(res.data);
         }
       } catch (err) {
         console.error('Failed to load plans', err);
@@ -48,14 +49,34 @@ const Plans = ({ onSelectPlan }) => {
     return () => {
       isMounted = false;
     };
-  }, [selectedLocation]);
+  }, []);
 
   const filteredPlans = plans.filter((plan) => {
-    const speedNum = Number.parseInt(plan?.speed ?? '0', 10) || 0;
+    if (!plan || plan.active === false) return false;
 
-    if (selectedSpeedFilter === 'Under 100 Mbps') return speedNum < 100;
-    if (selectedSpeedFilter === '100 Mbps - 200 Mbps') return speedNum >= 100 && speedNum <= 200;
-    if (selectedSpeedFilter === '300 Mbps+') return speedNum >= 300;
+    const planLocations = Array.isArray(plan.location)
+      ? plan.location
+      : [plan.location].filter(Boolean);
+    if (
+      selectedLocation !== 'All'
+      && !planLocations.includes('All')
+      && !planLocations.includes(selectedLocation)
+    ) {
+      return false;
+    }
+
+    if (selectedSpeedFilter === 'All') return true;
+
+    const speedMatch = String(plan.speed ?? '').match(/(\d+(?:\.\d+)?)\s*(gbps|gbit\/s|mbps|mbit\/s)?/i);
+    if (!speedMatch) return false;
+
+    const speedValue = Number(speedMatch[1]);
+    const speedUnit = speedMatch[2]?.toLowerCase() || 'mbps';
+    const speedMbps = speedUnit.startsWith('g') ? speedValue * 1000 : speedValue;
+
+    if (selectedSpeedFilter === 'Under 100 Mbps') return speedMbps < 100;
+    if (selectedSpeedFilter === '100 Mbps - 200 Mbps') return speedMbps >= 100 && speedMbps <= 200;
+    if (selectedSpeedFilter === '300 Mbps+') return speedMbps >= 300;
     return true;
   });
 
@@ -207,4 +228,3 @@ const Plans = ({ onSelectPlan }) => {
 };
 
 export default Plans;
-
