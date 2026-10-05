@@ -27,6 +27,20 @@
   gap: 24px;
 }
 
+.navbar-inner > nav {
+  min-width: 0;
+}
+
+.navbar-inner > *,
+.hero-grid > *,
+.highlights-grid > *,
+.services-grid > *,
+.plans-grid > *,
+.dashboard-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
 .brand-logo {
   display: flex;
   align-items: center;
@@ -40,7 +54,7 @@
   white-space: nowrap;
 }
 
-.brand-logo span {
+.brand-tx {
   color: var(--primary-color);
 }
 
@@ -306,6 +320,7 @@
 .plan-price-box {
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
   margin-bottom: 16px;
 }
 
@@ -322,6 +337,7 @@
 }
 
 .plan-speed-badge {
+  min-width: 0;
   background: var(--bg-secondary);
   border-radius: var(--radius-sm);
   padding: 8px 12px;
@@ -347,6 +363,11 @@
   font-size: 0.9rem;
   color: var(--text-dark);
   margin-bottom: 10px;
+}
+
+.plan-benefit-item span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .plan-benefit-item svg {
@@ -400,6 +421,9 @@
   justify-content: center;
   z-index: 1000;
   padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .modal-content {
@@ -407,9 +431,14 @@
   border-radius: var(--radius-md);
   width: 100%;
   max-width: 540px;
+  min-width: 0;
   padding: 28px;
   max-height: 90vh;
+  max-height: min(90vh, calc(100dvh - 40px));
   overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  flex: 0 0 auto;
   position: relative;
 }
 
@@ -454,7 +483,9 @@
 
 /* TABLES */
 .table-container {
-  overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: visible;
   background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
@@ -462,6 +493,7 @@
 
 .data-table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   text-align: left;
   font-size: 0.95rem;
@@ -479,6 +511,7 @@
   padding: 14px 16px;
   border-bottom: 1px solid var(--border-color);
   color: var(--text-dark);
+  overflow-wrap: anywhere;
 }
 
 .badge {
@@ -515,10 +548,6 @@
   margin-bottom: 12px;
 }
 
-.footer-brand span {
-  color: var(--primary-color);
-}
-
 .footer-col h4 {
   color: #ffffff;
   font-size: 1.05rem;
@@ -551,172 +580,96 @@
   color: #94a3b8;
 }
 
-/* Responsive layout */
-.navbar-inner,
-.hero-grid,
-.highlights-grid,
-.services-grid,
-.plans-grid,
-.dashboard-grid,
-.footer-grid,
-.plan-card,
-.service-card,
-.container {
-  min-width: 0;
+/* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1200px) {
+  .hero-title { font-size: 2.4rem; }
 }
 
-.table-container {
-  max-width: 100%;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-}
-
-.data-table {
-  min-width: 600px;
-}
-
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .navbar-inner { gap: 12px; }
-  .brand-logo { margin-right: 0; font-size: 1.15rem; }
-  .nav-links { gap: 12px; }
-  .nav-link { font-size: 0.82rem; }
-  .nav-actions .btn { padding: 9px 12px; font-size: 0.85rem; }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .navbar { height: auto; }
-  .navbar-inner { min-height: 72px; }
-  .navbar-inner > nav,
-  .nav-actions { display: none; }
-  .hamburger-btn { display: block; padding: 8px; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu { padding: 16px max(24px, calc((100% - 720px) / 2)); }
-
-  .hero-section { padding: 48px 0 56px; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; text-align: center; }
+@media (max-width: 992px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
   .hero-cta { justify-content: center; }
   .hero-image-wrapper { display: flex; justify-content: center; }
-  .hero-image-wrapper img { max-height: 420px; object-fit: contain; }
-
-  .highlights-grid,
-  .services-grid,
-  .plans-grid,
-  .dashboard-grid,
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+  .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .plans-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
   [style*="grid-template-columns"] {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+}
 
-  .section { padding: 52px 0; }
-  .container > h1 { font-size: 2.2rem !important; }
-  .footer-grid { gap: 32px; }
+@media (max-width: 1024px) {
+  .nav-links, .nav-actions { display: none; }
+  .hamburger-btn { display: block; }
+  .mobile-menu.open { display: flex; }
 }
 
 @media (max-width: 767px) {
-  .container { padding: 0 18px; }
-  .section { padding: 42px 0; }
-  .section-title { font-size: clamp(1.55rem, 6vw, 1.9rem); }
-  .section-subtitle { font-size: 0.98rem; margin-bottom: 28px; }
-  .container > h1 { font-size: clamp(1.7rem, 7vw, 2.15rem) !important; }
-
-  .navbar { height: auto; }
-  .navbar-inner { min-height: 66px; gap: 12px; }
-  .navbar-inner > nav,
-  .nav-actions { display: none; }
-  .brand-logo { margin-right: 0; font-size: clamp(1.05rem, 4vw, 1.25rem); }
-  .hamburger-btn { display: block; padding: 8px; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu { padding: 12px 18px 18px; gap: 8px; }
-  .mobile-menu a { padding: 10px 4px; }
-
-  .hero-section { padding: 38px 0 44px; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; text-align: center; }
-  .hero-title { font-size: clamp(1.8rem, 8vw, 2.35rem); }
-  .hero-subtitle { font-size: 1rem; margin-bottom: 22px; }
-  .hero-cta { flex-direction: column; align-items: stretch; gap: 10px; }
-  .hero-cta .btn { width: 100%; }
-  .hero-image-wrapper img { width: 100%; max-height: 340px; object-fit: contain; }
-  .service-detail-card { padding: 20px !important; }
-  .service-detail-actions { flex-direction: column; }
-  .service-detail-actions .btn { width: 100%; }
-  .service-benefits-grid { grid-template-columns: minmax(0, 1fr) !important; }
-
-  .highlights-grid,
-  .services-grid,
-  .plans-grid,
-  .dashboard-grid,
-  .footer-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
+  .plans-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .highlights-grid { grid-template-columns: 1fr; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
   [style*="grid-template-columns"] {
     grid-template-columns: minmax(0, 1fr) !important;
   }
-
-  .highlight-item,
-  .service-card { padding: 20px; }
-  .plans-grid { gap: 20px; }
-  .plan-card { padding: 24px 20px; }
-  .plan-price { font-size: 2rem; }
-
-  .location-selector-wrapper { gap: 8px; }
-  .location-label { width: 100%; justify-content: center; margin-bottom: 4px; }
-  .location-btn { flex: 1 1 calc(50% - 8px); min-width: 0; padding: 8px 10px; }
-  .btn { max-width: 100%; }
-  .modal-overlay { padding: 12px; }
-  .modal-content { padding: 22px 18px; max-height: calc(100dvh - 24px); }
-
-  .footer { padding: 42px 0 18px; }
-  .footer-grid { gap: 28px; }
-  .footer-brand,
-  .footer-col { min-width: 0; }
-  .footer p,
-  .footer-links,
-  .data-table td { overflow-wrap: anywhere; }
 }
 
-@media (min-width: 600px) and (max-width: 767px) {
-  .highlights-grid,
-  .services-grid,
-  .plans-grid,
-  .dashboard-grid,
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  [style*="grid-template-columns"] {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .service-detail-card {
-    grid-template-columns: 64px minmax(0, 1fr) !important;
-    padding: 24px !important;
-  }
-
-  .service-benefits-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-
-  .service-detail-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-
-@media (max-width: 420px) {
-  .container { padding: 0 14px; }
-  .mobile-menu { padding-right: 14px; padding-left: 14px; }
-  .hero-section { padding: 32px 0 38px; }
-  .hero-title { font-size: clamp(1.7rem, 8vw, 2rem); }
-  .hero-grid { gap: 22px; }
-  .location-btn { flex-basis: calc(50% - 6px); font-size: 0.84rem; }
-  .plan-card { padding: 22px 16px; }
-  .table-container { margin-right: 0; }
-  .data-table { min-width: 560px; font-size: 0.88rem; }
+@media (max-width: 576px) {
+  .hero-title { font-size: 1.9rem; }
+  .section { padding: 40px 0; }
+  .modal-content { padding: 20px; }
+  .container { padding-right: 16px; padding-left: 16px; }
+  .section-title { font-size: 1.65rem; }
+  .section-subtitle { font-size: 0.95rem; }
+  .btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+  .data-table { table-layout: fixed; }
   .data-table th,
-  .data-table td { padding: 10px 12px; }
+  .data-table td { overflow-wrap: anywhere; padding: 8px 6px; }
+  .table-container { overflow-x: visible; }
+  .plans-comparison-table .data-table,
+  .plans-comparison-table tbody { display: block; }
+  .plans-comparison-table thead {
+    display: block;
+    padding: 8px 12px 0;
+  }
+  .plans-comparison-table thead tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 8px;
+  }
+  .plans-comparison-table th {
+    padding: 4px;
+    border: 0;
+    background: transparent;
+    font-size: 0.75rem;
+  }
+  .plans-comparison-table tbody { padding: 12px; }
+  .plans-comparison-table tr {
+    display: block;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+  }
+  .plans-comparison-table td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    text-align: right;
+  }
+  .plans-comparison-table td::before {
+    content: attr(data-label);
+    flex: 0 0 auto;
+    color: var(--dark-heading);
+    font-weight: 600;
+    text-align: left;
+  }
+  .plans-comparison-table td:last-child { border-bottom: 0; }
+  .plans-comparison-table .btn { margin-left: auto; }
+  .footer { padding-top: 40px; }
 }

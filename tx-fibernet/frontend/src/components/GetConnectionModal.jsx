@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { X, Send, CheckCircle } from 'lucide-react';
 import api from '../services/api';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 const GetConnectionModal = ({ isOpen, onClose, defaultPlan = 'Standard Fiber' }) => {
+  useBodyScrollLock(isOpen);
+
   const [formData, setFormData] = useState({
     fullName: '',
     mobile: '',
@@ -210,4 +213,3 @@ const GetConnectionModal = ({ isOpen, onClose, defaultPlan = 'Standard Fiber' })
 };
 
 export default GetConnectionModal;
-

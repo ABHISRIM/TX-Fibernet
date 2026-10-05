@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+﻿import React, { useState, useEffect, useContext } from 'react';
 import { 
   Users, 
   Package, 
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import api from '../services/api';
 import { AuthContext } from '../context/AuthContext';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
@@ -41,6 +42,8 @@ const AdminDashboard = () => {
     description: '',
     benefits: 'Unlimited Data, Symmetric Speed, Free Router'
   });
+
+  useBodyScrollLock(showPlanModal);
 
   const loadAllData = async () => {
     setLoading(true);
@@ -270,7 +273,7 @@ const AdminDashboard = () => {
                       {plans.map((p) => (
                         <tr key={p._id}>
                           <td><strong>{p.name}</strong></td>
-                          <td>₹{p.price}</td>
+                          <td>â‚¹{p.price}</td>
                           <td>{p.speed}</td>
                           <td>{p.validity}</td>
                           <td>{p.data}</td>
@@ -345,7 +348,7 @@ const AdminDashboard = () => {
                           <strong>{s.customerName}</strong><br />
                           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{s.phone}</span>
                         </td>
-                        <td>{s.planId?.name} (₹{s.planId?.price})</td>
+                        <td>{s.planId?.name} (â‚¹{s.planId?.price})</td>
                         <td>{s.address}, {s.city}</td>
                         <td>{new Date(s.startDate).toLocaleDateString()}</td>
                         <td>
@@ -529,7 +532,7 @@ const AdminDashboard = () => {
                       <tr key={p._id}>
                         <td><code>{p.transactionId}</code></td>
                         <td>{p.userId?.name || 'User'}</td>
-                        <td><strong>₹{p.amount}</strong></td>
+                        <td><strong>â‚¹{p.amount}</strong></td>
                         <td>{p.paymentMethod}</td>
                         <td>{new Date(p.createdAt).toLocaleString()}</td>
                         <td><span className="badge badge-success">{p.status}</span></td>
@@ -561,7 +564,7 @@ const AdminDashboard = () => {
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                   <div className="form-group">
-                    <label className="form-label">Price (₹)</label>
+                    <label className="form-label">Price (â‚¹)</label>
                     <input
                       type="number"
                       className="form-input"

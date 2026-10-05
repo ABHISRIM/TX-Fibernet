@@ -1,9 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { X, CheckCircle, Wifi, ShieldCheck, Zap, PhoneCall } from 'lucide-react';
+import useBodyScrollLock from '../hooks/useBodyScrollLock';
 
 const PlanDetailsModal = ({ plan, onClose }) => {
   const navigate = useNavigate();
+
+  useBodyScrollLock(Boolean(plan));
 
   if (!plan) return null;
 
@@ -90,4 +93,3 @@ const PlanDetailsModal = ({ plan, onClose }) => {
 };
 
 export default PlanDetailsModal;
-

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, HelpCircle, ArrowRight } from 'lucide-react';
 
@@ -36,7 +36,7 @@ const FaqPage = () => {
     },
     {
       q: "How can I contact TXFibernet?",
-      a: "You can reach our team via phone at +91 98765 43210, email support@txfibernet.com, or submit an inquiry directly through our Contact Us page."
+      a: <>You can reach our team via phone at <a href="tel:9943399432">99433 99432</a>, email support@txfibernet.com, or submit an inquiry directly through our Contact Us page.</>
     }
   ];
 

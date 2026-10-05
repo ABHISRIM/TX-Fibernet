@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react';
 import api from '../services/api';
 
@@ -78,7 +78,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 style={{ fontSize: '1rem', color: 'var(--dark-heading)', marginBottom: '2px' }}>Phone Line</h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>+91 99433 99432</p>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}><a href="tel:9943399432">99433 99432</a></p>
                   </div>
                 </div>
 
@@ -111,8 +111,8 @@ const Contact = () => {
                   <div>
                     <h4 style={{ fontSize: '1rem', color: 'var(--dark-heading)', marginBottom: '2px' }}>Working Hours</h4>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                      Monday – Saturday: 9:00 AM – 8:00 PM<br />
-                      Sunday: 10:00 AM – 4:00 PM
+                      Monday â€“ Saturday: 9:00 AM â€“ 8:00 PM<br />
+                      Sunday: 10:00 AM â€“ 4:00 PM
                     </p>
                   </div>
                 </div>

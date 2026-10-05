@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Wifi, 
@@ -75,7 +75,7 @@ const Home = ({ onSelectPlan }) => {
     },
     {
       q: "How can I contact TXFibernet?",
-      a: "You can reach our team via phone at +91 98765 43210, email support@txfibernet.com, or submit an inquiry directly through our Contact page."
+      a: <>You can reach our team via phone at <a href="tel:9943399432">99433 99432</a>, email support@txfibernet.com, or submit an inquiry directly through our Contact page.</>
     }
   ];
 
@@ -333,7 +333,7 @@ const Home = ({ onSelectPlan }) => {
               <CheckCircle size={28} color="#0284c7" style={{ marginBottom: '12px' }} />
               <h4 style={{ fontSize: '1.1rem', marginBottom: '8px' }}>Affordable Pricing</h4>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                Transparent pricing starting from ₹399/month with zero hidden charges.
+                Transparent pricing starting from â‚¹399/month with zero hidden charges.
               </p>
             </div>
 

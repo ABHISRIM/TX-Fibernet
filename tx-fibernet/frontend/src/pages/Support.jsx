@@ -143,7 +143,7 @@ const Support = () => {
               For urgent connection loss or optical fiber breaks in your area, contact our toll-free phone support:
             </p>
             <div style={{ background: '#fff', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)', marginBottom: '20px' }}>
-              <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary-color)' }}>+91 98765 43210</div>
+              <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary-color)' }}><a href="tel:9943399432">99433 99432</a></div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Toll-Free Technical Desk</div>
             </div>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -200,4 +200,3 @@ const Support = () => {
 };
 
 export default Support;
-
